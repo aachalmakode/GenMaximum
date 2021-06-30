@@ -1,23 +1,33 @@
 package com.generic;
-public class Maximum {
+public class Maximum<E extends Comparable> {
 
-    public static void main(String[] args) {
-        Integer a = 2, b = 4, c = 6;
-        Float x = 3.4f, y = 4.6f, z = 6.7f;
-        String l = "apple", m = "banana", n = "orange";
-        findMaximum(l, m, n);
+    E firstPosition;
+    E secondPosition;
+    E thirdPosition;
+    E fourthPosition;
+    E fifthPosition;
 
+    public Maximum(E firstPosition, E secondPosition, E thirdPosition, E fourthPosition, E fifthPosition) {
+        this.firstPosition = firstPosition;
+        this.secondPosition = secondPosition;
+        this.thirdPosition = thirdPosition;
+        this.fourthPosition = fourthPosition;
+        this.fifthPosition = fifthPosition;
     }
 
-    //uc2
-    private static void findMaximum(String a , String b , String c){
-        String max = a;
-        if (b.campareTo(a) > 0);
-        max = b;
+    public E maximumGeneric(){
+        return genericMaximum(firstPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition);
     }
-        if (c.compareTo(max) > 0) {
-        max = c;
+    public <E extends Comparable> E genericMaximum(E firstPosition, E secondPosition, E thirdPosition, E fourthPosition, E fifthPosition){
+        E maxPosition = firstPosition;
+        if(secondPosition.compareTo(maxPosition) > 0)
+            maxPosition = secondPosition;
+        if(thirdPosition.compareTo(maxPosition) > 0)
+            maxPosition = thirdPosition;
+        if(fourthPosition.compareTo(maxPosition) > 0)
+            maxPosition = fourthPosition;
+        if(fifthPosition.compareTo(maxPosition) > 0)
+            maxPosition = fifthPosition;
+        return maxPosition;
     }
-        System.out.println("String" + max);
 }
-    }
